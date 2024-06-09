@@ -1,0 +1,12 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.carousel-inner{
+    max-height: 400px;
+}
+
+.carousel-inner > carousel-item {
+    max-width: fit-content;
+}
