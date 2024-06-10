@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'emailHandler',
+    'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -88,9 +89,11 @@ DATABASES = {
 }
 
 
-# celary broker
+# Celery
+# settings.py
 
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'  # or your actual Redis URL
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/0'  # or your actual Redis URL
 
 # Email setup
 
