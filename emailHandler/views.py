@@ -16,19 +16,19 @@ def index(request):
 
 
 def update_company(request):
-    # with open('jobs.txt','r') as jobs:
-    #     for job in jobs:
-    #         details = job.split()
-    #         email = details[-1]
-    #         company_name = " ".join(details[:-1])
-    #         print( f"the company name is {company_name} and email is {email}")
-    #         companyDetails.objects.create(company_name=company_name, email=email)
+    with open('jobs.txt','r') as jobs:
+        for job in jobs:
+            details = job.split()
+            email = details[-1]
+            company_name = " ".join(details[:-1])
+            print( f"the company name is {company_name} and email is {email}")
+            companyDetails.objects.create(company_name=company_name, email=email)
+             # Trigger the Celery task to send an email
+            k = send_mail_to_company.delay(company_name, email)
+            print(k.result)
+            print(dir(k))
 
-
-    # Trigger the Celery task to send an email
-    k = send_mail_to_company.delay('AJtech', 'rahulrajeev836@gmail.com')
-    print(k.result)
-    print(dir(k))
+   
 
     # Fetch all company details from the database
     company_jobs = companyDetails.objects.all()

@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 def send_mail_to_company(company_name, company_email):
     try:
         
-        subject = f"Application for Python Developer Position at {company_name}"
+        subject = f"Application for Python Fullstack Developer Position at {company_name}"
         from_email = 'ajithajayan222aa@gmail.com'
         to_email = [company_email]
 
